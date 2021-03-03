@@ -10,6 +10,7 @@ int main (void)
     {
         x = x+0.1;
     }
+    //ASi se pone la presición en notación científica con 7 decimales
     std::cout.precision(7);
     std::cout.setf(std::ios::scientific);
     std::cout<< "EL resultado es : " << x << "\n";
