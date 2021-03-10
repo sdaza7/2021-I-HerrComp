@@ -1,14 +1,24 @@
 #Comentarios
-#@: Target
-#^: Todas las Pertenencias
-#<: Primera Dependencia
+#@: Target (Acompañada de $)
+#^: Todas las Pertenencias (Acompañada de $)
+#<: Primera Dependencia (Acompañada de $)
+#%: Todos los archivos de la forma -> Emacs
 
-all: datos.txt
+CXX = g++
+CXXFLAGS = -O2 -g
+all: datos.pdf
 
-updown.x: sumas.cpp
-	g++ sumas.cpp -o updown.x
+#Implicit Rules
+#Forma 1: Caso General
+%.x: %.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+#Forma 2: Caso Más Específico
+#updown.x: sumas.cpp
+#	$(CXX) $(CXXFLAGS) updown.cpp -o updown.x
 
 datos.txt: updown.x
-	./updown.x 1000 > datos.txt
+	./$< 1000 > $@
+datos.pdf: datos.txt updown.gp
+	gnuplot updown.gp
 clean:
-	rm -f datos.txt updown.x
+	rm -f datos.txt updown.x datos.pdf
