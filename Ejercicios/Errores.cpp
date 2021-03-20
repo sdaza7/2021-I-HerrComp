@@ -22,7 +22,7 @@ int main (int argc, char **argv)
     S1 = std::pow(pot,8) - 8*std::pow(pot,7)*x/factorial(1) + 56*std::pow(pot,6)*std::pow(x,2)/factorial(2) - 6*56*std::pow(pot,5)*std::pow(x,3)/factorial(3) + 30*56*std::pow(pot,4)*std::pow(x,4)/factorial(4) - 120*56*std::pow(pot,3)*std::pow(x,5)/factorial(5) + 360*56*std::pow(pot,2)*std::pow(x,6)/factorial(6) - 360*112*std::pow(pot,1)*std::pow(x,7)/factorial(7) + 360*112*std::pow(x,8)/factorial(8);
     //Serie de TAylor con productos
     REAL S2 = 0.0;
-    S2 = 1 - 1*x/factorial(1) + 56*x*x/factorial(2) - 6*56*x*x*x/factorial(3) + 30*56*x*x*x*x/factorial(4) - 120*56*x*x*x*x*x/factorial(5) + 360*56*x*x*x*x*x*x/factorial(6) - 360*112*x*x*x*x*x*x*x/factorial(7) + 360*112*x*x*x*x*x*x*x*x/factorial(8);
+    S2 = 1 - 8*x/factorial(1) + 56*x*x/factorial(2) - 6*56*x*x*x/factorial(3) + 30*56*x*x*x*x/factorial(4) - 120*56*x*x*x*x*x/factorial(5) + 360*56*x*x*x*x*x*x/factorial(6) - 360*112*x*x*x*x*x*x*x/factorial(7) + 360*112*x*x*x*x*x*x*x*x/factorial(8);
     std::cout << "X" << "\t" << "Pow" << "S Taylor" << "S Taylor Pow" << "\n";
     std::cout << x <<  "\t" << f1(x) << "\t" << S1 << "\t" << S2 << "\n";
     return 0;
