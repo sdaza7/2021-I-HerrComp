@@ -23,7 +23,7 @@ int main (int argc, char **argv)
     //Serie de TAylor con productos
     REAL S2 = 0.0;
     S2 = 1 - 8*x/factorial(1) + 56*x*x/factorial(2) - 6*56*x*x*x/factorial(3) + 30*56*x*x*x*x/factorial(4) - 120*56*x*x*x*x*x/factorial(5) + 360*56*x*x*x*x*x*x/factorial(6) - 360*112*x*x*x*x*x*x*x/factorial(7) + 360*112*x*x*x*x*x*x*x*x/factorial(8);
-    std::cout << "X" << "\t" << "Pow" << "S Taylor" << "S Taylor Pow" << "\n";
+    std::cout << "          " << "X" << "                       " << "Pow" << "              " << "S Taylor con POW" << "        " << "S Taylor Product" << "\n";
     std::cout << x <<  "\t" << f1(x) << "\t" << S1 << "\t" << S2 << "\n";
     return 0;
 }
