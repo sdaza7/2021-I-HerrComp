@@ -1,0 +1,87 @@
+Reporte de la Tarea
+
+A. Distribución de los Arreglos:
+
+     Al ser declarado como un puntero, la dirección de memoría de "x" se ubica
+     en el stack, mientras que, para "y" y "z", al haberlos declarado desde un
+     principio como arreglos, tienen una dirección de memoria ubicada en el
+     heap. También, dado que la distancia entre las direcciones de memoria son
+     de un entero, se puede afirmar que los arreglos "y" y "z" son contínúos.
+     Mientras "x" se ubica lejos de estos.
+   - Finalmente, l orden de los arreglos sería:
+     1. x.
+     2. z.
+     3. y.
+
+   - Para tener una certeza de esto, se imprimieron los valores de la dirección
+   de memoria de cada arreglo y de los valores contenidos en estos, tal que, se
+   pudo observar en inicio y el final de cada uno, así, se pudo comprobar que
+   "y" y "z" son contiguos.
+
+B. Reporte de Cambios Realizados en el Código:
+
+   1. También, fue necesario inicializar los arreglos "y" y "z".
+     // double y[NY]  ->  double y[NY]={0}; línea 8
+
+   2. El arreglo correspondiente al puntero "x" también se inicializó:
+     //x = new double [NX]  ->  x = new double [NX] {0}; línea 9
+
+   3. Fue  necesario inicializar variables tales como ii, jj, kk:
+     // int ii -> int ii = 0; lineas 11-13
+
+   4. Al compilar usando sanitizers y un warning, se observó una única advertencia. Al
+   realizar un bucle, for, para la variable ii, se busca asignar valores al
+   arreglo, los cuales deben estar en función de esta misma variable (ii):
+     //x[jj] = ii  ->  x[ii] = ii; Línea 20.
+
+   5. Al utilizar la función print_array(x, NZ), es necesario que el tamaño del
+   arreglo coincida con el dado en la función, sino, esta va a imprimir valores
+   fuera del arreglo:
+     //print_array(x, NZ) -> print_array(x, NX); Línea 23
+
+   - Para la función print_array(z, NZ+NY), el tamaño ingresado a la función es
+     mayor al del arreglo por lo que imprime valores fuera de este, sin
+     embargo, al ser contiguos "z" con "y", y, estando "z" antes de "y", los valores que
+     se toman fuera del arreglo coinciden con los de NY, por lo que realmente se
+     estaría expresando un "z+y". No se realiza ningpun cambio, porque no se
+     considera un error. Línea 25
+
+   6. Para el bucle, for, de la variable jj, es necesario que los cambios
+   realizados se hagan en función de esta variable. También, dada la condición
+   de jj<NY, los valores que se cambian en "x" se sandrían del arreglo, por lo tanto, se introdujo un
+   condicional jj<NX para el caso de "x", que permitió que se cambiaran unicamente
+   los valores dentro del arreglo según su tamaño (NX).
+    // x[jj] = ii  ->  if(jj<NX) { x[jj] = jj; }  Línea 30
+
+   7. Debido a que "x" está en el spack, no es continuo con los arreglos "y" o
+   "z", por lo que tomar un "x-NY" en la función print_array, se estaría
+   saliendo del arreglo y tomando valores que no corresponden.
+    // print_array(x-NY, NY)  -> print_array(x,NX) Línea 37
+
+   - No se relizó ningún cambio en print_array(y-NZ, NZ) debido a que, al ser
+     contiguos los arreglos, realmente se estaría imprimiendo a "z", no se
+     considera un error. Línea 38
+
+   8. Para print_array(z + NZ + NY, NX) se observa que esto se sale de los
+   arreglos, tomando valores que no corresponden, se arregla esto al tomar
+   (z+NZ,NY) tal que realmente se esté imprimiendo a "y".
+     //print_array(z + NZ + NY, NX)  ->  print_array(z+NZ,NY) Línea 39
+
+   9. El error (6) se repite para otro bucle, para el caso de la variable kk con
+   confición kk<NZ. Debido a que este bucle afecta los valores de "x", de
+   "y", y de "z", se hace un procedimiento similar, dejando todo en función de la
+   variabe kk, con sus respectivos condicionales:
+     //x[kk] = ii  ->  if(kk<NX) { x[kk] = kk; } Línea 44
+     //y[kk] = jj  ->  if(kk<NY) { y[kk] = kk; } Línea 48
+
+   10. Debido a que se declara a "x" como un puntero, una vez se termine de dar
+     uso a este arreglo es necesario liberar la memoria utilizada en el stack:
+     //delete [] x; Línea 78
+
+   11. Para la función print_array, que permite imprimir los valores del
+     arreglo, se definió e inicializó nuevamente la variable ii, por lo que, se
+     cambio el nombre de esta variable a ll.
+     // for( int ii=0; ii<size; ++ii) {std::cout<<data[ii] << "  "; }  ->
+     for(int ll=0; ll<size; ++ll) {std::cout<<data[ll] << "  "; } Línea 86
+
+S.D.
