@@ -1,0 +1,8 @@
+np: 	8	Time: 	4.71076e+02	SpeedUp: 	7.55744e+00	Eficiency: 	9.44680e-01	Pi: 	3.14162e+00
+np: 	7	Time: 	5.24474e+02	SpeedUp: 	6.85285e+00	Eficiency: 	9.78978e-01	Pi: 	3.14164e+00
+np: 	6	Time: 	6.03294e+02	SpeedUp: 	5.92593e+00	Eficiency: 	9.87655e-01	Pi: 	3.14166e+00
+np: 	5	Time: 	6.86823e+02	SpeedUp: 	5.12745e+00	Eficiency: 	1.02549e+00	Pi: 	3.14160e+00
+np: 	4	Time: 	7.47050e+02	SpeedUp: 	4.70889e+00	Eficiency: 	1.17722e+00	Pi: 	3.14154e+00
+np: 	3	Time: 	1.00472e+03	SpeedUp: 	3.30256e+00	Eficiency: 	1.10085e+00	Pi: 	3.14152e+00
+np: 	2	Time: 	1.70883e+03	SpeedUp: 	1.67913e+00	Eficiency: 	8.39563e-01	Pi: 	3.14154e+00
+np: 	1	Time: 	3.37862e+03	SpeedUp: 	1.00000e+00	Eficiency: 	1.00000e+00	Pi: 	3.14154e+00
