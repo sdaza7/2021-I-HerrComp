@@ -1,0 +1,1 @@
+# de procesos: 	1	Tiempo: 	2.6130e+03	SpeedUp: 	1.0000e+00	Eficiencia: 	1.0000e+00	Pi: 	3.1415e+00

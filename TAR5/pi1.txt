@@ -1,0 +1,1 @@
+np: 	1	Time: 	2.62534e+03	SpeedUp: 	1.00000e+00	Eficiency: 	1.00000e+00	Pi: 	3.14154e+00
