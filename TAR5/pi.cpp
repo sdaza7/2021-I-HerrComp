@@ -32,26 +32,11 @@ int main (int argc, char **argv)
      double aprox_pi = 4.0*Total_Nc/N;
      double t1 = MPI_Wtime();
      double tlapse = t1 - t0;
-     //Para la parte serial
-     double t_0 = MPI_Wtime();
-     double Pi_1 = 4.0*samples(N)/N;
-     double t_1 = MPI_Wtime();
-     double ST = 0.0;
-     if(1==np)
-     {
-         ST=tlapse;
-     }
-     else
-     {
-         ST=t_1 - t_0;
-     }
-     double SU = ST/tlapse;
+     
      if(0==pid)
      {
          std::cout << "np: " << "\t" << np <<  "\t"
                    << "Time: " << "\t" << tlapse << "\t"
-                   << "SpeedUp: " << "\t" << SU << "\t"
-                   << "Eficiency: " << "\t" << SU/np << "\t"
                    << "Pi: " << "\t" << aprox_pi <<std::endl;
      }
      MPI_Finalize(); /* Mandatory */
